@@ -2,3 +2,6 @@
 /documents
 documents.zip
 pdfs.zip
+/classes/DB.php
+/include/conn.php
+/path.php
