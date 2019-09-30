@@ -5,8 +5,8 @@
 	$mainCat = "Home";
 	include_once 'path.php';
 ?>
+<html dir="ltr" lang="en-US">
 <head>
-	<html dir="ltr" lang="en-US">
 	<meta charset="UTF-8" />
 	<title>fone-tech</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
