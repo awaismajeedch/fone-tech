@@ -60,13 +60,15 @@
 								<div class="accordion-inner">
 									<div class="span12">
                     <div>
-                      <a href="javascript:validateForm();"  class="button_bar" style="margin-left:15%;margin-bottom:1%">Make Manufacturer</a>
+											<button type="button" data-toggle="modal" data-target="#manufacturerModal" name="button" class="button_bar" style="margin-left:15%;margin-bottom:1%">Make Manufacturer</button>
+                      <!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:15%;margin-bottom:1%">Make Manufacturer</a> -->
+                    </div>
+                    <div>
+											<button type="button" data-toggle="modal" data-target="#modelModal" name="button" class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Model</button>
+                      <!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Model</a> -->
                     </div>
                     <div>
                       <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Type</a>
-                    </div>
-                    <div>
-                      <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Color</a>
                     </div>
 										<!-- <form class="form-horizontal" id="pricesform"  name="pricesform" method="post" enctype="multipart/form-data" >
 										<div class="span5">
@@ -175,6 +177,9 @@
 <footer>
    <?php
 		include_once($path."footer.php");
+		include_once($pathModal."modal_manufacturer.php");
+		include_once($pathModal."modal_model.php");
+		// include_once($path."footer.php");
 	?>
 </footer>
 </body>
