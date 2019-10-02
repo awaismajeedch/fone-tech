@@ -1,17 +1,21 @@
 <style media="screen">
-.modal-body .form-horizontal .col-sm-2,
-.modal-body .form-horizontal .col-sm-10 {
-  width: 100%
-}
+  .modal-body .form-horizontal .col-sm-2,
+  .modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+  }
 
-.modal-body .form-horizontal .control-label {
-  text-align: left;
-}
-.modal-body .form-horizontal .col-sm-offset-2 {
-  margin-left: 15px;
-}
+  .modal-body .form-horizontal .control-label {
+    text-align: left;
+  }
+  .modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+  }
 </style>
-
+  <?php
+    $tableName='accessories';
+    $where='status=1';
+    $manufacturerList=$db->select($tableName,"",$where);
+  ?>
 <div class="modal fade" id="modelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -25,16 +29,25 @@
         <form id="model_form" method="post" class="form-horizontal" role="form">
           <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>"/>
          <div class="control-group">
-           <label  class="col-sm-2 control-label" for="inputEmail3">Make</label>
+           <!-- <label  class="col-sm-2 control-label" for="inputEmail3">Model</label> -->
            <div class="col-sm-10">
-               <input type="text" class="form-control"
-               id="manufacturer" name="make" placeholder="Manufacturer"/>
+            <select name="manufacturer_list">
+              <option value=''>-----SELECT-----</option>
+              <?php
+              foreach ($manufacturerList as $manufacturer) {
+                  echo "<option value='$manufacturer[id]'>$manufacturer[make]</option>";
+              }
+              ?>
+            </select>
            </div>
-					 <p class="error" id = "manufacturer_error" style="color:red;display:none;margin:5px">*MAKE ALREADY EXISTS</p>
+           <div class="col-sm-10" style="margin-top:15px">
+               <input type="text" class="form-control" id=a_model" name="model" placeholder="Model"/>
+           </div>
+					 <p class="error" id = "model_error" style="color:red;display:none;margin:5px">*MAKE ALREADY EXISTS</p>
          </div>
          <div class="control-group">
            <div class="col-sm-offset-2 col-sm-10" style="margin-top:5px">
-             <a href="javascript:validatemakeForm();"  class="button_bar">Save</a>
+             <a href="javascript:validatemodelForm();"  class="button_bar">Save</a>
              <!-- //<button type="submit" class="button-bar">Create</button> -->
            </div>
          </div>
@@ -42,8 +55,37 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+
+  function validatemodelForm () {
+    var success=1;
+    if ( $("#a_model").val() == "" ) {
+        alert("Please enter model!");
+        success = 0;
+        return;
+    }
+    if(success == 1){
+      var serializedData = $('#model_form').serialize();
+      $.post("model_controller.php",serializedData,function(data){
+
+        if(data == 1){
+          $('#modelModal').modal('hide');
+          alert("Data Inserted Successfully");
+          //console.log(data);
+        }
+        else if(data == 2){
+          //console.log(data);
+          $('#model_error').show();
+          $('#model').attr('style','border-color:red');
+        }
+      });
+      return;
+    }
+  }
+</script>

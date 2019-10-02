@@ -260,21 +260,36 @@ class DB {
 		$sql = "UPDATE invoices set current_id = $invid, used_by =  '$usedfor' where id=1";
 		mysqli_query($this->mysqli,$sql) or die(mysqli_error($this->mysqli));
 		return $invid;
-  }
+  	}
 
-  function verifyMake($make){
-    $make = strtolower($make);
-    $sql = "SELECT LOWER('make') FROM accessories WHERE make = '$make'";
-          //console.log($sql);
-          //print_r($sql);
-    $result = $this->mysqli->query($sql) or die($this->mysqli->error.__LINE__);
-    $totalrecs = $result->num_rows;
-        //echo $totalrecs;
-    if ($totalrecs > 0) {
-      return 1;
-    } else {
-      return 0;
-    }
-  }
+  	function verifyMake($make){
+		$make = strtolower($make);
+		$sql = "SELECT LOWER('make') FROM accessories WHERE make = '$make'";
+			//console.log($sql);
+			//print_r($sql);
+		$result = $this->mysqli->query($sql) or die($this->mysqli->error.__LINE__);
+		$totalrecs = $result->num_rows;
+			//echo $totalrecs;
+		if ($totalrecs > 0) {
+		return 1;
+		} else {
+		return 0;
+		}
+	 }
+	 function verifyModel($model,$accessories_id){
+		$model = strtolower($model);
+		$sql = "SELECT LOWER('model') FROM accessories_model WHERE model = '$model' and accessories_id='$accessories_id'";
+			//console.log($sql);
+			//print_r($sql);
+		$result = $this->mysqli->query($sql) or die($this->mysqli->error.__LINE__);
+		$totalrecs = $result->num_rows;
+			//echo $totalrecs;
+		if ($totalrecs > 0) {
+		return 1;
+		} else {
+		return 0;
+		}
+ 	}
 }
+
 ?>

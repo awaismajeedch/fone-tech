@@ -59,70 +59,19 @@
 							<div id="collapseOne" class="accordion-body collapse in">
 								<div class="accordion-inner">
 									<div class="span12">
-                    <div>
+										<div>
 											<button type="button" data-toggle="modal" data-target="#manufacturerModal" name="button" class="button_bar" style="margin-left:15%;margin-bottom:1%">Make Manufacturer</button>
-                      <!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:15%;margin-bottom:1%">Make Manufacturer</a> -->
-                    </div>
-                    <div>
+										<!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:15%;margin-bottom:1%">Make Manufacturer</a> -->
+										</div>
+										<div>
 											<button type="button" data-toggle="modal" data-target="#modelModal" name="button" class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Model</button>
-                      <!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Model</a> -->
-                    </div>
-                    <div>
-                      <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Type</a>
-                    </div>
-										<!-- <form class="form-horizontal" id="pricesform"  name="pricesform" method="post" enctype="multipart/form-data" >
-										<div class="span5">
-											<div class="control-group">
-												<label class="control-label" >*Manufactured By: </label>
-												<div class="controls">
-													<input  type="text" name="txtmake" id="txtmake" autocomplete="off" data-provide="typeahead"  class="input-large" tabindex="1" >
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label" >*Part Name: </label>
-												<div class="controls">
-													<input  type="text" name="txtpart" id="txtpart" autocomplete="off" data-provide="typeahead" class="input-large" tabindex="3">
-												</div>
-											</div>
-
-											<div class="control-group">
-												<label class="control-label" >Comments: </label>
-												<div class="controls">
-													<input  type="text"  name="txtcomments" id="txtcomments" class="input-large"/ tabindex="6">
-												</div>
-											</div>
+										<!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Model</a> -->
 										</div>
-										<div class="span5">
-											<div class="control-group">
-												<label class="control-label" >*Model Name: </label>
-												<div class="controls">
-													<input  type="text"  name="txtmodel" id="txtmodel" autocomplete="off" data-provide="typeahead" class="input-large" tabindex="2" />
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label">Price: </label>
-												<div class="controls">
-													<input  type="text" name="txtprice" id="txtprice" class="input-mini" tabindex="4">
-													&nbsp;&nbsp;Most Selling:&nbsp;&nbsp; <input type="checkbox"  id="chkviewed" name="chkviewed" onclick="javascript:setVal();" tabindex="5">
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label" >Image: </label>
-												<div class="controls">
-													<input type="file"  name="txtfile" id="txtfile" class="input-large" tabindex="7" />
-													<input type="hidden" name="userdbimage" id="userdbimage" value="" >
-												</div>
-											</div>
-											<div class="control-group">
-												<a href="javascript:validateForm();"  class="button_bar" style="float:right;">Save</a>
-											</div>
-											<input type="hidden"  name="txtid" id="txtid" value="" >
-											<input type="hidden"  name="txtviewed" id="txtviewed" value="0" >
-
+										<div>
+											<button type="button" data-toggle="modal" data-target="#typeModal" name="button" class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Type</button>
+											<!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Type</a> -->
 										</div>
-										</form> -->
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -179,6 +128,8 @@
 		include_once($path."footer.php");
 		include_once($pathModal."modal_manufacturer.php");
 		include_once($pathModal."modal_model.php");
+		include_once($pathModal."modal_type.php");
+
 		// include_once($path."footer.php");
 	?>
 </footer>
