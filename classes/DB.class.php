@@ -289,6 +289,22 @@ class DB {
 		} else {
 		return 0;
 		}
+	 }
+	  function verifyType($type,$accessories_model_id){
+		$type = strtolower($type);
+		//return 0;
+		$sql = "SELECT LOWER('type') FROM accessories_type WHERE type = '$type' and accessories_model_id='$accessories_model_id'";
+		//echo $type;
+			//console.log($sql);
+			//print_r($sql);
+		$result = $this->mysqli->query($sql) or die($this->mysqli->error.__LINE__);
+		$totalrecs = $result->num_rows;
+			//echo $totalrecs;
+		if ($totalrecs > 0) {
+		return 1;
+		} else {
+		return 0;
+		}
  	}
 }
 

@@ -40,17 +40,16 @@
               ?>
             </select>
             <select id="modelList" name="model_list">
-              
             </select>
            </div>
            <div class="col-sm-10" style="margin-top:15px">
-               <input type="text" class="form-control" id=a_model" name="model" placeholder="Model"/>
+               <input type="text" class="form-control" id="a_type" name="type" placeholder="Type"/>
            </div>
-					 <p class="error" id = "model_error" style="color:red;display:none;margin:5px">*MAKE ALREADY EXISTS</p>
+					 <p class="error" id = "type_error" style="color:red;display:none;margin:5px">*TYPE ALREADY EXISTS</p>
          </div>
          <div class="control-group">
            <div class="col-sm-offset-2 col-sm-10" style="margin-top:5px">
-             <a href="javascript:validatemodelForm();"  class="button_bar">Save</a>
+             <a href="javascript:validatetypeForm();"  class="button_bar">Save</a>
              <!-- //<button type="submit" class="button-bar">Create</button> -->
            </div>
          </div>
@@ -74,40 +73,31 @@
         $modelList=document.getElementById("modelList");
         $modelList.innerHTML="";
         $modelList.innerHTML=data;
-       //console.log(data);
-      // var el = $(this) ;
-
-      // if(el.val() === "ONLINE" ) {
-      // $("#status").append("<option>SHIPPED</option>");
-      // }
-      // else if(el.val() === "MANUAL" ) {
-      //   $("#status option:last-child").remove() ; 
       });
     });
-
   });
 
 
-  function validatemodelForm () {
+  function validatetypeForm () {
     var success=1;
-    if ( $("#a_model").val() == "" ) {
-        alert("Please enter model!");
+    if ( $("#a_type").val() == "" ) {
+        alert("Please enter type!");
         success = 0;
         return;
     }
     if(success == 1){
-      var serializedData = $('#model_form').serialize();
-      $.post("model_controller.php",serializedData,function(data){
-
+      var serializedData = $('#type_form').serialize();
+      $.post("type_controller.php",serializedData,function(data){
+        //console.log(data);
         if(data == 1){
-          $('#modelModal').modal('hide');
+          $('#typeModal').modal('hide');
           alert("Data Inserted Successfully");
           //console.log(data);
         }
         else if(data == 2){
           //console.log(data);
-          $('#model_error').show();
-          $('#model').attr('style','border-color:red');
+          $('#type_error').show();
+          $('#a_type').attr('style','border-color:red');
         }
       });
       return;

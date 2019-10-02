@@ -41,9 +41,9 @@
             </select>
            </div>
            <div class="col-sm-10" style="margin-top:15px">
-               <input type="text" class="form-control" id=a_model" name="model" placeholder="Model"/>
+               <input type="text" class="form-control" id="a_model" name="model" placeholder="Model"/>
            </div>
-					 <p class="error" id = "model_error" style="color:red;display:none;margin:5px">*MAKE ALREADY EXISTS</p>
+					 <p class="error" id = "model_error" style="color:red;display:none;margin:5px">*MODEL ALREADY EXISTS</p>
          </div>
          <div class="control-group">
            <div class="col-sm-offset-2 col-sm-10" style="margin-top:5px">
@@ -82,7 +82,7 @@
         else if(data == 2){
           //console.log(data);
           $('#model_error').show();
-          $('#model').attr('style','border-color:red');
+          $('#a_model').attr('style','border-color:red');
         }
       });
       return;
