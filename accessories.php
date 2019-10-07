@@ -19,6 +19,7 @@
     <link rel="shortcut icon" href="favicon.ico">
     <?php
 		include_once($path ."head.php");
+		include_once 'include/global.inc.php';
 	?>
 	<style type="text/css">
 	.typeahead {
@@ -82,7 +83,7 @@
 							</div>
 							<div id="collapseTwo" class="accordion-body collapse">
 								<div class="accordion-inner">
-                                    <form class="form-inline" id="searchform"  name="searchform" method="post">
+                                    <!-- <form class="form-inline" id="searchform"  name="searchform" method="post">
                                         <div class="span12 discover">
                                             <div class="span4" >
                                                 <div class="control-group">
@@ -104,12 +105,101 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> -->
 								</div>
                                 <div id="priceslist">
                                     <?php
-                                        include_once($pathaj."prices_list.php");
+                                        //include_once($pathaj."prices_list.php");
+																				$tablename = 'accessories';
+																				$where = 1;
+																				$orderby = '';
+																				$accessries_data = $db->select($tablename, $orderby, $where);
                                     ?>
+                                    <div class="accordion" id="SavedAccessories">
+																			<?php foreach ($accessries_data as $key => $accessories) {  ?>
+                                      <div class="card">
+                                        <div class="card-header" id="headingOne" style="margin-left:20px">
+                                          <h5 class="mb-0">
+                                            <button class="btn btn-danger" style="width:150px" type="button" data-toggle="collapse" data-target="#ACard<?php echo $key ?>" aria-expanded="true" aria-controls="ACard<?php echo $key ?>">
+                                              <?php echo $accessories['make'] ?>
+                                            </button>
+                                          </h5>
+                                        </div>
+
+                                        <div id="ACard<?php echo $key ?>" class="collapse show" aria-labelledby="headingOne" data-parent="#SavedAccessories">
+                                          <div class="card-body" style="padding-left:50px">
+																						<!-- INNER DATA -->
+																						<?php
+				                                        //include_once($pathaj."prices_list.php");
+																								$tablename1 = 'accessories_model';
+																								$where1 = 'accessories_id = '.$accessories['id'];
+																								$orderby1 = '';
+																								$accessries_model_data = $db->select($tablename1, $orderby1, $where1);
+				                                    ?>
+																						<?php if($accessries_model_data) foreach ($accessries_model_data as $key1 => $a_model) {  ?>
+																						<div class="card">
+																							<div class="card-header" id="headingOne" style="margin-left:20px">
+																								<h5 class="mb-0">
+																									<button class="btn btn-warning" style="width:150px" type="button" data-toggle="collapse" data-target="#BCard<?php echo $key1 ?>" aria-expanded="true" aria-controls="BCard<?php echo $key1 ?>">
+																										<?php echo $a_model['model'] ?>
+																									</button>
+																								</h5>
+																							</div>
+
+																							<div id="BCard<?php echo $key1 ?>" class="collapse show" aria-labelledby="headingOne" data-parent="#SavedAccessories">
+																								<div class="card-body" style="padding-left:50px">
+																									<!-- INNER INNER DATA -->
+																									<?php
+							                                        //include_once($pathaj."prices_list.php");
+																											$tablename2 = 'accessories_type';
+																											$where2 = 'accessories_model_id = '.$a_model['id'];
+																											$orderby2 = '';
+																											$accessries_type_data = $db->select($tablename2, $orderby2, $where2);
+							                                    ?>
+																									<?php if($accessries_type_data) foreach ($accessries_type_data as $key2 => $a_type) {  ?>
+																									<div class="card">
+																										<div class="card-header" id="headingOne" style="margin-left:20px">
+																											<h5 class="mb-0">
+																												<button class="btn btn-info" style="width:150px" type="button" data-toggle="collapse" data-target="#CCard<?php echo $key2 ?>" aria-expanded="true" aria-controls="CCard<?php echo $key2 ?>">
+																													<?php echo $a_type['name'] ?>
+																												</button>
+																											</h5>
+																										</div>
+
+																										<div id="CCard<?php echo $key2 ?>" class="collapse show" aria-labelledby="headingOne" data-parent="#SavedAccessories">
+																											<div class="card-body" style="padding-left:50px">
+																												<!-- INNER INNER INNER DATA -->
+																												<?php
+										                                        //include_once($pathaj."prices_list.php");
+																														$tablename3 = 'accessories_color';
+																														$where3 = 'accessories_type_id = '.$a_type['id'];
+																														$orderby3 = '';
+																														$color_string = '';
+																														$accessries_color_data = $db->select($tablename3, $orderby3, $where3);
+																														if($accessries_color_data) foreach ($accessries_color_data as $key3 => $a_color) {
+																															$color_string .= $a_color['color_name'].',';
+																														}
+										                                    ?>
+																												<h5 class="mb-0">
+																													<button class="btn btn-success" style="width:150px" type="button" data-toggle="collapse" data-target="#CCard<?php echo $key2 ?>" aria-expanded="true" aria-controls="CCard<?php echo $key2 ?>">
+																														<?php echo $color_string ?>
+																													</button>
+																												</h5>
+																												<!-- INNER INNER INNER DATA -->
+																											</div>
+																										</div>
+																									</div>
+																								<?php } ?>
+																								<!-- INNER INNER DATA END -->
+																								</div>
+																							</div>
+																						</div>
+																					<?php } ?>
+																					<!-- INNER DATA END -->
+                                          </div>
+                                        </div>
+                                      </div>
+																		<?php } ?>
                                 </div>
                             </div>
                         </div>

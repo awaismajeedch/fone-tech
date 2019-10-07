@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 $data = array(
   "accessories_model_id" => "$accessories_model_id",
-  "type" => "'$type'",
+  "name" => "'$type'",
   "status" => "1",
   "created_at" => "'".date("Y-m-d H:i:s",time())."'"
 );

@@ -293,7 +293,7 @@ class DB {
 	  function verifyType($type,$accessories_model_id){
 		$type = strtolower($type);
 		//return 0;
-		$sql = "SELECT LOWER('type') FROM accessories_type WHERE type = '$type' and accessories_model_id='$accessories_model_id'";
+		$sql = "SELECT LOWER('type') FROM accessories_type WHERE name = '$type' and accessories_model_id='$accessories_model_id'";
 		//echo $type;
 			//console.log($sql);
 			//print_r($sql);
