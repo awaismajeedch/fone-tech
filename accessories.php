@@ -47,7 +47,6 @@
 		</div>
 		<div class="container">
 			<div class="row-fluid distance_1">
-
 				<div class="row-fluid">
 					<div class="accordion" id="accordion">
 						<div class="accordion-group">
@@ -83,44 +82,42 @@
 							</div>
 							<div id="collapseTwo" class="accordion-body collapse">
 								<div class="accordion-inner">
-										<form class="form-inline" id="searchform"  name="searchform" method="post">
-											<div class="span12 discover">
-												<div class="span4" >
-													<div class="control-group">
-														<div class="controls">
-															<input  type="text" name="model" id="model" class="input-medium" placeholder="Model Name" >
-														</div>
-													</div>
-												</div>
-												<div class="span4">
-													<div class="control-group">
-														<div class="controls">
-															<input  type="text" name="part" id="part" class="input-medium" placeholder="Part Name" >
-														</div>
-													</div>
-												</div>
-												<div class="span2">
-													<div class="control-group">
-														<a href="javascript:validateSearch();"  class="button_bar" style="float:left; padding:6px 20px; margin-top:0px; margin-left:0px; ">Search</a>
-													</div>
-												</div>
-											</div>
-										</form>
-									<div>
-										<div id="priceslist">
-											<?php
-												include_once($pathaj."prices_list.php");
-											?>
-										</div>
-									</div>
+                                    <form class="form-inline" id="searchform"  name="searchform" method="post">
+                                        <div class="span12 discover">
+                                            <div class="span4" >
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <input  type="text" name="model" id="model" class="input-medium" placeholder="Model Name" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="span4">
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <input  type="text" name="part" id="part" class="input-medium" placeholder="Part Name" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="span2">
+                                                <div class="control-group">
+                                                    <a href="javascript:validateSearch();"  class="button_bar" style="float:left; padding:6px 20px; margin-top:0px; margin-left:0px; ">Search</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                <div id="priceslist">
+                                    <?php
+                                        include_once($pathaj."prices_list.php");
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer>
