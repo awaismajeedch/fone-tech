@@ -71,6 +71,10 @@
 											<button type="button" data-toggle="modal" data-target="#typeModal" name="button" class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Type</button>
 											<!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Type</a> -->
 										</div>
+										<div>
+											<button type="button" data-toggle="modal" data-target="#colorModal" name="button" class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Color</button>
+											<!-- <a href="javascript:validateForm();"  class="button_bar" style="margin-left:5%;margin-bottom:1%">Make Type</a> -->
+										</div>
 									</div>
 								</div>
 							</div>
@@ -110,18 +114,18 @@
                                 <div id="priceslist">
                                     <?php
                                         //include_once($pathaj."prices_list.php");
-																				$tablename = 'accessories';
-																				$where = 1;
-																				$orderby = '';
-																				$accessries_data = $db->select($tablename, $orderby, $where);
+										$tablename = 'accessories';
+										$where = 1;
+										$orderby = '';
+										$accessries_data = $db->select($tablename, $orderby, $where);
                                     ?>
                                     <div class="accordion" id="SavedAccessories">
-																			<?php foreach ($accessries_data as $key => $accessories) {  ?>
-                                      <div class="card">
-                                        <div class="card-header" id="headingOne" style="margin-left:20px">
-                                          <h5 class="mb-0">
-                                            <button class="btn btn-danger" style="width:150px" type="button" data-toggle="collapse" data-target="#ACard<?php echo $key ?>" aria-expanded="true" aria-controls="ACard<?php echo $key ?>">
-                                              <?php echo $accessories['make'] ?>
+										<?php foreach ($accessries_data as $key => $accessories) {  ?>
+                                      	<div class="card">
+                                        	<div class="card-header" id="headingOne" style="margin-left:20px">
+                                          		<h5 class="mb-0">
+                                            	<button class="btn btn-danger" style="width:150px" type="button" data-toggle="collapse" data-target="#ACard<?php echo $key ?>" aria-expanded="true" aria-controls="ACard<?php echo $key ?>">
+                                              	<?php echo $accessories['make'] ?>
                                             </button>
                                           </h5>
                                         </div>
@@ -216,6 +220,7 @@
 		include_once($pathModal."modal_manufacturer.php");
 		include_once($pathModal."modal_model.php");
 		include_once($pathModal."modal_type.php");
+		include_once($pathModal."modal_color.php");
 
 		// include_once($path."footer.php");
 	?>

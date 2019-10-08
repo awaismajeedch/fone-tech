@@ -293,7 +293,7 @@ class DB {
 	  function verifyType($type,$accessories_model_id){
 		$type = strtolower($type);
 		//return 0;
-		$sql = "SELECT LOWER('type') FROM accessories_type WHERE name = '$type' and accessories_model_id='$accessories_model_id'";
+		$sql = "SELECT LOWER('name') FROM accessories_type WHERE name = '$type' and accessories_model_id='$accessories_model_id'";
 		//echo $type;
 			//console.log($sql);
 			//print_r($sql);
@@ -305,7 +305,25 @@ class DB {
 		} else {
 		return 0;
 		}
- 	}
+	}
+
+		function verifyTolor($color,$accessories_type_id){
+		$color = strtolower($color);
+		//return 0;
+		$sql = "SELECT LOWER('color_name') FROM accessories_color WHERE color_name = '$color' and accessories_type_id='$accessories_type_id'";
+		//echo $type;
+			//console.log($sql);
+			//print_r($sql);
+		$result = $this->mysqli->query($sql) or die($this->mysqli->error.__LINE__);
+		$totalrecs = $result->num_rows;
+			//echo $totalrecs;
+		if ($totalrecs > 0) {
+		return 1;
+		} else {
+		return 0;
+		}
+	 }
 }
+
 
 ?>
