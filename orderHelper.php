@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
        }
 
     }
-    else{
+    else if($_GET['check']=="model"){
         $model = $_REQUEST['Model_list'];
         $tableName="accessories_type";
         $where="accessories_model_id=$model";
@@ -27,8 +27,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach($typeList as $type){
         echo "<option value='$type[id]'>$type[name]</option>";
        }
+       
 
 
+    }
+    else{
+        $type = $_REQUEST['Type_list'];
+        echo $type;
+        $tableName="accessories_color";
+        $where="accessories_type_id=$type";
+        $colorList=$db->select($tableName,"",$where);
+        echo "<option value=''>---SELECT---</option>";
+        foreach($colorList as $color){
+        echo "<option value='$color[id]'>$color[color_name]</option>";
+       } 
     }
   //$userid=$_REQUEST['user_id'];
   //print_r($userid);

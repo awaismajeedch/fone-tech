@@ -42,10 +42,10 @@
 <div class="row-fluid ">
 	<div class="span12">
 		<!-- LayerSlider Content End -->
-		<div class="row-fluid divider slide_divider base_color_background">
+		<!-- <div class="row-fluid divider slide_divider base_color_background">
 			<div class="container">
 			</div>
-		</div>
+		</div> -->
 		<div class="container">
 			<div class="row-fluid distance_1">
 				<div class="row-fluid">

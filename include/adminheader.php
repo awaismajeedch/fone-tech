@@ -54,7 +54,11 @@
 					<li <?php if ($mainCat=="Sold") { 
 										echo ' class="current-menu-item current_page_item"'; }?> >
 						<a href="sold.php">Sold</a>
-					</li>					
+					</li>	
+					<li <?php if ($mainCat=="Order") { 
+										echo ' class="current-menu-item current_page_item menu-item-home"'; }?> >
+						<a href="order.php">Order</a>
+					</li>				
 				</ul>
 			</div>
 		</div>
